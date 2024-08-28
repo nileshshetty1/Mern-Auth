@@ -9,19 +9,13 @@ const Header = () => {
         </Link>
         <ul className="flex gap-5">
           <Link to="/">
-            <li className="hover:text-gray-500 cursor-pointer underline">
-              Home
-            </li>
+            <li className="hover:text-gray-300 cursor-pointer ">Home</li>
           </Link>
           <Link to="/about">
-            <li className="hover:text-gray-500 cursor-pointer underline">
-              About
-            </li>
+            <li className="hover:text-gray-300 cursor-pointer ">About</li>
           </Link>
           <Link to="/sign-in">
-            <li className="hover:text-gray-500 cursor-pointer underline">
-              Sign-in
-            </li>
+            <li className="hover:text-gray-300 cursor-pointer ">Sign-in</li>
           </Link>
         </ul>
       </div>
