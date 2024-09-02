@@ -38,7 +38,7 @@ export const google = async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      console.log(token);
+
       const { password: hashedPassword, ...rest } = user._doc;
       const expiryDate = new Date(Date.now() + 3600000);
       res
