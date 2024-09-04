@@ -1,11 +1,11 @@
 import User from "../models/userModel.js";
 import { errorHandler } from "../utils/error.js";
 import bcrypt from "bcryptjs";
-export const userController = (req, res) => {
-  res.status(400).json({
-    user: "Nilesh",
-  });
-};
+// export const userController = (req, res) => {
+//   res.status(400).json({
+//     user: "Nilesh",
+//   });
+// };
 
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
@@ -31,5 +31,17 @@ export const updateUser = async (req, res, next) => {
     res.status(200).json(rest);
   } catch (error) {
     next(error);
+  }
+};
+
+export const deleteUser = async (req, res, next) => {
+  if (req.user.id !== req.params.id) {
+    return next(errorHandler(401, "You can delete only your account"));
+  }
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json("User has been deleted");
+  } catch (error) {
+    next(errorHandler());
   }
 };
